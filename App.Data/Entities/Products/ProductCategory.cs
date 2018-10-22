@@ -1,6 +1,4 @@
 ﻿using App.Data.DomainEntity;
-using App.Data.Enums;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -9,25 +7,19 @@ namespace App.Data.Entities.Products
     [Table("ProductCategories")]
     public class ProductCategory : EntityBase<int>
     {
-        public string Name { get; set; }
+        public int ProductId { get; set; }
+        public int CategoryId { get; set; }
 
-        public string Description { get; set; }
+        public ProductCategory(int productId, int categoryId)
+        {
+            ProductId = productId;
+            CategoryId = categoryId;
+        }
 
-        public int? ParentId { get; set; }
-
-        public int? HomeOrder { get; set; }
-
-        public string Image { get; set; }
-
-        public bool? HomeFlag { get; set; }
-
-        public int SortOrder { set; get; }
-        public Status Status { set; get; }
-        public string SeoPageTitle { set; get; }
-        public string SeoAlias { set; get; }
-        public string SeoKeywords { set; get; }
-        public string SeoDescription { set; get; }
-
+        [ForeignKey("ProductId")]
         public virtual ICollection<Product> Products { set; get; }
+
+        [ForeignKey("CategoryId")]
+        public virtual ICollection<Category> Categories { set; get; }
     }
 }

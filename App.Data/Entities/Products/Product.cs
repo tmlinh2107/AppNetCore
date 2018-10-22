@@ -2,18 +2,54 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace App.Data.Entities.Products
 {
     public class Product : EntityBase<int>
     {
+        public Product()
+        {
+        }
+
+        public Product(
+            string name, 
+            string image, 
+            decimal price, 
+            decimal? promotionPrice, 
+            decimal originalPrice, 
+            string description, 
+            string content, 
+            bool? homeFlag,
+            bool? hotFlag, 
+            int? viewCount, 
+            string tags, 
+            string unit, 
+            string seoPageTitle, 
+            string seoAlias, 
+            string seoKeywords, 
+            string seoDescription)
+        {
+            Name = name;
+            Image = image;
+            Price = price;
+            PromotionPrice = promotionPrice;
+            OriginalPrice = originalPrice;
+            Description = description;
+            Content = content;
+            HomeFlag = homeFlag;
+            HotFlag = hotFlag;
+            ViewCount = viewCount;
+            Tags = tags;
+            Unit = unit;
+            SeoPageTitle = seoPageTitle;
+            SeoAlias = seoAlias;
+            SeoKeywords = seoKeywords;
+            SeoDescription = seoDescription;
+        }
+
         [StringLength(255)]
         [Required]
         public string Name { get; set; }
-
-        [Required]
-        public int CategoryId { get; set; }
 
         [StringLength(255)]
         public string Image { get; set; }
@@ -54,9 +90,6 @@ namespace App.Data.Entities.Products
 
         [StringLength(255)]
         public string SeoDescription { set; get; }
-
-        [ForeignKey("CategoryId")]
-        public virtual ProductCategory ProductCategory { set; get; }
 
         public virtual ICollection<ProductTag> ProductTags { set; get; }
     }
