@@ -1,14 +1,12 @@
-﻿using App.Data.DomainEntity;
-using App.Data.Enums;
+﻿using App.Data.Enums;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace App.Data.Entities.Products
+namespace App.Application.ViewModels.Products
 {
-    [Table("ProductCategories")]
-    public class ProductCategory : EntityBase<int>
+    public class ProductCategoryViewModel
     {
+        public int Id { get; set; }
         public string Name { get; set; }
 
         public string Description { get; set; }
@@ -21,13 +19,16 @@ namespace App.Data.Entities.Products
 
         public bool? HomeFlag { get; set; }
 
+        public DateTime CreatedDate { set; get; }
+        public DateTime ModifiedDate { set; get; }
         public int SortOrder { set; get; }
         public Status Status { set; get; }
         public string SeoPageTitle { set; get; }
         public string SeoAlias { set; get; }
         public string SeoKeywords { set; get; }
         public string SeoDescription { set; get; }
-
-        public virtual ICollection<Product> Products { set; get; }
+        public string CreatedBy { get; set; }
+        public string ModifiedBy { get; set; }
+        public virtual ICollection<ProductViewModel> Products { set; get; }
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace App.Application.AutoMapper
 {
-    public class AutoMapperConfig
+    class ViewModelToMappingProfiles
     {
     }
 }

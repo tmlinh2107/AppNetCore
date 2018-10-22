@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace App.Application.AutoMapper
+namespace App.Application.ViewModels.Contacts
 {
-    public class AutoMapperConfig
+    public class ContactViewModel
     {
     }
 }

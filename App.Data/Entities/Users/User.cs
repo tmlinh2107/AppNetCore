@@ -1,4 +1,5 @@
-﻿using App.Data.Enums;
+﻿using App.Data.Entities.Contacts;
+using App.Data.Enums;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.ComponentModel.DataAnnotations;
@@ -49,5 +50,7 @@ namespace App.Data.Entities.Users
         public UserStatus Status { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime? ModifiedDate { get; set; }
+
+        public virtual Contact Contact { get; set; }
     }
 }

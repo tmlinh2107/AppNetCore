@@ -4,9 +4,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace App.Data.Entities.Roles
 {
-    [Table("UserRole")]
+    [Table("UserRoles")]
     public class UserRole : IdentityUserRole<Guid>
     {
+        public UserRole() : base()
+        {
 
+        }
     }
 }
