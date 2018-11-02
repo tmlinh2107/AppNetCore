@@ -5,21 +5,21 @@ namespace App.Data.Enums
     public enum OrderStatus
     {
         [Description("New bill")]
-        New,
+        New = 1,
 
         [Description("In Progress")]
-        InProgress,
+        InProgress = 2,
 
         [Description("Being Transported")]
-        BeingTransported,
+        BeingTransported = 3,
 
         [Description("Returned")]
-        Returned,
+        Returned = 4,
 
         [Description("Cancelled")]
-        Cancelled,
+        Cancelled = 5,
 
         [Description("Completed")]
-        Completed
+        Completed = 6
     }
 }
